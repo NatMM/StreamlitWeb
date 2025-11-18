@@ -45,6 +45,7 @@ st.markdown("""
         border: 2px solid #667eea;
         padding: 10px;
         font-size: 16px;
+        color: #000000 !important;
     }
     
     .stTextArea > div > div > textarea {
@@ -53,6 +54,7 @@ st.markdown("""
         border: 2px solid #667eea;
         padding: 10px;
         font-size: 16px;
+        color: #000000 !important;
     }
     
     /* Estilo del botón */
@@ -83,6 +85,7 @@ st.markdown("""
         box-shadow: 0 8px 32px rgba(0,0,0,0.1);
         margin-top: 20px;
         border-left: 5px solid #667eea;
+        color: #000000 !important;
     }
     
     /* Spinner personalizado */
@@ -99,7 +102,13 @@ st.markdown('<p class="subtitle">Powered by Google Gemini & Streamlit</p>', unsa
 # Sidebar para configuración
 with st.sidebar:
     st.header("⚙️ Configuración")
-    api_key = st.text_input("API Key de Gemini:", type="password", help="Ingresa tu API Key de Google AI Studio")
+    
+    # Intentar obtener API Key de secrets primero
+    if "GEMINI_API_KEY" in st.secrets:
+        api_key = st.secrets["GEMINI_API_KEY"]
+        st.success("✅ API Key cargada desde secrets")
+    else:
+        api_key = st.text_input("API Key de Gemini:", type="password", help="Ingresa tu API Key de Google AI Studio")
     
     st.markdown("---")
     st.markdown("### 📖 Instrucciones:")
