@@ -57,6 +57,21 @@ st.markdown("""
         color: #000000 !important;
     }
     
+    /* Placeholder text (texto de ejemplo) */
+    .stTextArea > div > div > textarea::placeholder {
+        color: #666666 !important;
+        opacity: 0.7;
+    }
+    
+    /* Cursor/caret (línea indicadora) */
+    .stTextArea > div > div > textarea {
+        caret-color: #000000 !important;
+    }
+    
+    .stTextInput > div > div > input {
+        caret-color: #000000 !important;
+    }
+    
     /* Estilo del botón */
     .stButton > button {
         background: linear-gradient(45deg, #667eea, #764ba2);
